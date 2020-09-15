@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <style>
+    @font-face {
+        font-family: glitter;
+        src: url(GLITTER_.TTF);
+    }
+    @font-face {
+        font-family: glitter;
+        src: url(GLITO___.TTF);
+        font-style: oblique;
+    }
     body {
         margin: 0;
+        background: #FAF3DD;
+        color: #FFA69E;
     }
     nav, main, > section {
         overflow: auto;
@@ -10,20 +21,95 @@
         min-height: 100vh;
     }
     #nav {
-        
         display: flex;
 	    justify-content: space-between;
 	    align-items: baseline;
+        
     }
     nav ul {
         display: flex;
         list-style: none;
     }
     nav ul a {
+        text-decoration: none;
+        color: #FFA69E;
         padding: 1em;
+        font-size: 1.5em;
+        font-family: glitter;
+        font-style: oblique;
+    }
+    h1 a {
+        text-decoration: none;
+        color: #FFA69E;
+        padding: 1em;
+        font-size: 1.5em;
+        font-family: glitter;
     }
     #banner {
-        
+        background-color: #B8F2E6;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 4em;
+        color: #5E6472;
+    }
+    #banner h2 {
+        margin: 0;
+        padding: 1em;
+    }
+    #banner > div {
+        position: relative;
+        left: -120px;
+        top: 120px;
+    }
+    
+    #guitars ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .card {
+        width: 400px;
+        margin: 1em;
+        background-color: #FFA69E;
+        color: #FFA69E;
+        border-radius: .5em;
+        font-family: monospace;
+        justify-content: center;
+    }
+    .card:hover {
+        color: #FAF3DD;
+    }
+    .card h3, .card p {
+        padding: 0.5em;
+    }
+    #contact label {
+        display: flex;
+        flex-direction: column;
+    }
+    input, textarea {
+        border: 1px solid #000000;
+        padding: 0.5em;
+        margin: 0 2em 0 0;
+        width: 20em;
+        font-size: 1em;
+    }
+    textarea {
+        height: 9em;
+        margin: 0 0 0 0;
+    }
+    form button {
+        width: auto;
+        font-size: 1em;
+        margin: 1em 0;
+        align-self: flex-end;
+        padding: 0.5em 1em;
+        background-color: #000000;
+        color: #ffffff;
+        border: none;
     }
 </style>
 <html>
@@ -34,18 +120,19 @@
 
 		<main>
 			<nav id="nav">
-				<h1><a href="">All About Guitar</a></h1>
+				<h1><a href="#banner">All About guitar</a></h1>
 				<ul>
-					<li><a href=""></a></li>
-					<li><a href=""></a></li>
-                    <li><a href=""></a></li>
-                    <li><a href=""></a></li>
+					<li><a href="#guitars">guitars</a></li>
+					<li><a href="#technique">technique</a></li>
+                    <li><a href="#tab">guitar tab</a></li>
+                    <li><a href="#music">music theory</a></li>
+                    <li><a href="#contact">contact me</a></li>
 				</ul>
 			</nav>
 
 			<section id="banner">
-				<h2>All About Guitar</h2>
-				<p>Learning Guitar is Easy, if you know how to</p>
+                <h2>Teach Yourself The Guitar</h2>
+                <img src="images/FAVPNG_vector-graphics-electric-guitar-clip-art-acoustic-guitar_2HV3JLGp.png">
 			</section>
 
 			<section id="guitars">
@@ -59,12 +146,14 @@
                         <h3>Acoustic</h3>
                         <p>Acoustic Guitars are cheaper, but they are limited to that sound</p>
                     </li>
+                    <li class="card">
+                        <h3>Does it Matter?</h3>
+                        <p>
+                            A common myth is that you should get an acoustic guitar if you are going to learn to play, but you can learn just as well with an electric guitar. So you should pick a guitar from whatever genre you want to play.  As you keep playing you will eventually get more guitars anyway.
+                        </p>
+                    </li>
                 </ul>
-                <h3>Does it Matter?</h3>
-                <p class="card">
-                    A common myth is that you should get an acoustic guitar if you are going to learn to play, but you can learn just as well with an electric guitar. So you should pick a guitar from whatever genre you want to play.  As you keep playing you will eventually get more guitars anyway.
-                </p>
-			</section>
+                </section>
 
 			<section id="technique">
 				<h2>Learn Technique</h2>
@@ -81,7 +170,7 @@
 				</figure>
 			</section>
             <section>
-                <div id="Music Theory">
+                <div id="music">
                     <h2>Music Theory</h2>
                     <p>If you want to get even better at guitar, learning some level of music theory can help, Look up some scales on guitar, they all have the same shape, and any note on those scales is fair game when making a riff, chord progression, or solo</p>
                 </div>
