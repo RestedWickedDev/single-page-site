@@ -14,7 +14,7 @@
         background: #FAF3DD;
         color: #FFA69E;
     }
-    nav, main, > section {
+    nav, main > section {
         overflow: auto;
     }
     main > section {
@@ -23,8 +23,7 @@
     #nav {
         display: flex;
 	    justify-content: space-between;
-	    align-items: baseline;
-        
+	    align-items: baseline;   
     }
     nav ul {
         display: flex;
@@ -33,15 +32,21 @@
     nav ul a {
         text-decoration: none;
         color: #FFA69E;
-        padding: 1em;
+        padding: .5em 1em .5em 1em;
+        margin: 2px;
         font-size: 1.5em;
         font-family: glitter;
         font-style: oblique;
+        border-radius: 16px;
+    }
+    nav ul a:hover {
+        border-radius: 16px;
+        border-style: dotted;
     }
     h1 a {
         text-decoration: none;
         color: #FFA69E;
-        padding: 1em;
+       
         font-size: 1.5em;
         font-family: glitter;
     }
@@ -63,7 +68,11 @@
         left: -120px;
         top: 120px;
     }
-    
+    #guitars h2 {
+        margin: 0;
+        padding: 1em;
+        font-size: 4em;
+    }
     #guitars ul {
         list-style: none;
         margin: 0;
@@ -73,25 +82,122 @@
     }
     .card {
         width: 400px;
+        height: 400px;
         margin: 1em;
-        background-color: #FFA69E;
-        color: #FFA69E;
-        border-radius: .5em;
         font-family: monospace;
         justify-content: center;
+        background-color: transparent;
+        perspective: 1000px
     }
-    .card:hover {
+    .card img {
+        width: 100%;
+    }
+    .inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.5s;
+        transform-style: preserve-3d;
+    }
+    .card:hover .inner {
+        transform: rotateY(180deg);
+    }
+    .front, .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+    .front {
+        background-color: #FFA69E;
+        border-radius: 16px;
+        box-shadow:  5px 5px 8px #e4ddc9, 
+                    -5px -5px 8px #fffff1;
+    }
+    .back {
+        background-color: #FFA69E;
         color: #FAF3DD;
+        border-radius: 16px;
+        transform: rotateY(180deg);
+        font-size: 2em;
+        box-shadow:  5px 5px 8px #e4ddc9, 
+                    -5px -5px 8px #fffff1;
     }
-    .card h3, .card p {
-        padding: 0.5em;
+    #technique {
+        background: url(images/multi\ guitars\ outline.png);
+        background-position: center;
+        background-size: 3em;
+        background-color: #B8F2E6;
+        background-attachment: fixed;
+        color: #5E6472;
+        font-size: 2em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1em;
+        text-align: center;
+    }
+    #technique h2 {
+        margin: 0;
+        padding: 1em;
+        font-size: 4em;
+    }
+    #technique button {
+        align-self: flex-end;
+    }
+    #spider {
+        border: none;
+        border-radius: 16px;
+        background: #b8f2e6;
+        box-shadow:  5px 5px 4px #ade3d8, 
+                    -5px -5px 4px #c3fff4;
+        font-size: 1em;
+
+    }
+    #spider a {
+        text-decoration: none;
+        color: #5E6472;
+    }
+    #spider:hover {
+        background: linear-gradient(145deg, #a6dacf, #c5fff6);
+    }
+    #tab {
+        padding: 1em;
+    }
+    #tab h2 {
+        font-size: 4em;
+    }
+    #tab p {
+        font-size: 2em;
+    }
+    #tab #happy {
+        font-family: 'Courier New', monospace;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    #music {
+        background-color: #B8F2E6;
+        color: #5E6472;
+        padding: 1em;
+        font-size: 2em;
+    }
+    #music h2 {
+        font-size: 4em;
+    }
+    #contact {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        font-size: 2em;
     }
     #contact label {
         display: flex;
         flex-direction: column;
     }
     input, textarea {
-        border: 1px solid #000000;
+        border: 2px solid #FFA69E;
         padding: 0.5em;
         margin: 0 2em 0 0;
         width: 20em;
@@ -107,7 +213,7 @@
         margin: 1em 0;
         align-self: flex-end;
         padding: 0.5em 1em;
-        background-color: #000000;
+        background-color: #FFA69E;
         color: #ffffff;
         border: none;
     }
@@ -139,47 +245,84 @@
                 <h2>What Kind of Guitar Should You Get? </h2>
 				<ul>
 					<li class="card">
-                        <h3>Electric</h3>
-                        <p>Electric guitars have a lot of versatility, but require additional equipment to be played.</p>
+                        <div class="inner">
+                            <div class="front">
+                                <img src="images/electric outline.png">
+                            </div>
+                            <div class="back">
+                                <h3>Electric</h3>
+                                <p>Electric guitars have a lot of versatility, but require additional equipment to be played.</p>
+                            </div>
+                        </div>
                     </li>
 					<li class="card">
-                        <h3>Acoustic</h3>
-                        <p>Acoustic Guitars are cheaper, but they are limited to that sound</p>
+                        <div class="inner">
+                            <div class="front">
+                                <img src="images/acoustic outline.png">
+                            </div>
+                            <div class="back">
+                                <h3>Acoustic</h3>
+                                <p>Acoustic Guitars are cheaper, but they are limited to that sound</p>
+                            </div>
+                        </div>
                     </li>
                     <li class="card">
-                        <h3>Does it Matter?</h3>
-                        <p>
-                            A common myth is that you should get an acoustic guitar if you are going to learn to play, but you can learn just as well with an electric guitar. So you should pick a guitar from whatever genre you want to play.  As you keep playing you will eventually get more guitars anyway.
-                        </p>
+                        <div class="inner">
+                            <div class="front">
+                                <img src="images/multi guitars outline.png">
+                            </div>
+                            <div class="back">
+                                <h3>Does it Matter?</h3>
+                                <p>
+                                    Pick a guitar used in the genre you want to play, you can learn on both types the same. You will get more guitars as you play.
+                                </p>
+                            </div>
+                        </div>
                     </li>
                 </ul>
                 </section>
 
 			<section id="technique">
-				<h2>Learn Technique</h2>
-				<p>Once you've gotten a guitar you might be tempted to look up a youtube video to play your favorite song, but while this isn't wrong you will find yourself frustrtated when you realise the song is probably harder than you thought. I recommend you first practice your technique and memorize the fretboard. Let me tell ya, it will seem smaller as you get better. I recommend looking up the Spider Exercises</p>
+                <h2>Learn Technique</h2>
+                <p>Once you've gotten a guitar you might be tempted to look up a youtube video to play your favorite song, but while this isn't wrong you will find yourself frustrtated when you realise the song is probably harder than you thought. I recommend you first practice your technique and memorize the fretboard. Let me tell ya, it will seem smaller as you get better. I recommend looking up the Spider Exercises</p>
+                <button type="button" id="spider">
+                    <a href="https://www.guitarhabits.com/the-eight-amazing-spider-exercises-for-dexterity/">Spider Exercises</a>
+                </button>
 			</section>
 
 			<section id="tab">
 				<div>
 					<h2>Guitar Tab</h2>
-					<p>Learning to read Guitar Tabs is a lot easier than reading sheet music, Many popular songs have tabs written for them</p>
+                    <p>Learning to read Guitar Tabs is a lot easier than reading sheet music, Many popular songs have tabs written for them</p>
+                    <p id="happy">
+                        e|--0--0--2--0--5--4--|--0--0--2--0--7--5--|--0--0--12--9--5--4--2--|--10--10--9--5--7--5--|<br>
+                        B|--------------------|--------------------|------------------------|----------------------|<br>
+                        G|--------------------|--------------------|------------------------|----------------------|<br>
+                        D|--------------------|--------------------|------------------------|----------------------|<br>
+                        A|--------------------|--------------------|------------------------|----------------------|<br>
+                        E|--------------------|--------------------|------------------------|----------------------|<br>
+                    </p>
+                    <p>
+                        The lines represent the string, while the number represents the fret you must play.
+                    </p>
 				</div>
 				<figure>
 					<img>
 				</figure>
 			</section>
-            <section>
-                <div id="music">
+            <section id="music">
+                <div>
                     <h2>Music Theory</h2>
                     <p>If you want to get even better at guitar, learning some level of music theory can help, Look up some scales on guitar, they all have the same shape, and any note on those scales is fair game when making a riff, chord progression, or solo</p>
+                    <img src="images/Pentatonic Scale.png">
                 </div>
             </section>
 
 			<footer id="contact">
+                <h2>Contact Me</h2>
 				<form>
 					<label>
-						J. David Perez
+						Name
 						<input type="text">
 					</label>
 
